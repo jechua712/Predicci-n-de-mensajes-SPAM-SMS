@@ -41,18 +41,18 @@ if not os.path.exists(MODEL_PATH):
     sys.exit(1)
 
 model = joblib.load(MODEL_PATH)
-print(f"✅ Modelo cargado desde: {os.path.abspath(MODEL_PATH)}\n")
+print(f"Modelo cargado desde: {os.path.abspath(MODEL_PATH)}\n")
 
 # ── Obtener mensajes ──────────────────────────────────────────────────────────
 if len(sys.argv) > 1:
     # Leer desde archivo .txt (un mensaje por línea)
     filepath = sys.argv[1]
     if not os.path.exists(filepath):
-        print(f"❌ Archivo no encontrado: {filepath}")
+        print(f"Archivo no encontrado: {filepath}")
         sys.exit(1)
     with open(filepath, "r", encoding="utf-8") as f:
         messages = [line.strip() for line in f if line.strip()]
-    print(f"📄 Leyendo {len(messages)} mensaje(s) desde '{filepath}'...\n")
+    print(f"Leyendo {len(messages)} mensaje(s) desde '{filepath}'...\n")
 else:
     # Mensajes de ejemplo hardcodeados
     messages = [
@@ -62,7 +62,7 @@ else:
         "Reminder: Your appointment is scheduled for tomorrow at 10am.",
         "FREE entry in a weekly competition to win an iPad. Just text WIN to 80085 now!",
     ]
-    print("ℹ️  No se indicó archivo. Usando mensajes de ejemplo.\n")
+    print("No se indicó archivo. Usando mensajes de ejemplo.\n")
 
 # ── Preprocesar y predecir ────────────────────────────────────────────────────
 processed = [preprocess(msg) for msg in messages]
@@ -73,7 +73,7 @@ probabilities = model.predict_proba(processed)
 separator = "─" * 60
 print(separator)
 for i, msg in enumerate(messages):
-    label        = "🚨 SPAM" if predictions[i] == 1 else "✅ HAM (no spam)"
+    label        = "🚨 SPAM" if predictions[i] == 1 else "HAM (no spam)"
     prob_spam    = probabilities[i][1]
     prob_ham     = probabilities[i][0]
 
