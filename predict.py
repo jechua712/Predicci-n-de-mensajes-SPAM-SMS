@@ -36,7 +36,7 @@ def preprocess(text: str) -> str:
 MODEL_PATH = "spam_model.joblib"
 
 if not os.path.exists(MODEL_PATH):
-    print(f"❌ No se encontró el modelo en '{MODEL_PATH}'.")
+    print(f"No se encontró el modelo en '{MODEL_PATH}'.")
     print("   Ejecuta primero: python train_model.py")
     sys.exit(1)
 
@@ -73,7 +73,7 @@ probabilities = model.predict_proba(processed)
 separator = "─" * 60
 print(separator)
 for i, msg in enumerate(messages):
-    label        = "🚨 SPAM" if predictions[i] == 1 else "HAM (no spam)"
+    label        = "SPAM" if predictions[i] == 1 else "HAM (no spam)"
     prob_spam    = probabilities[i][1]
     prob_ham     = probabilities[i][0]
 
