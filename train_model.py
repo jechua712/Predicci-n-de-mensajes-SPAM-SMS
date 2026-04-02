@@ -79,4 +79,4 @@ print(classification_report(y, preds, target_names=["ham", "spam"]))
 # ── 6. Guardar modelo ─────────────────────────────────────────────────────────
 MODEL_PATH = "spam_model.joblib"
 joblib.dump(best_model, MODEL_PATH)
-print(f"\n✅ Modelo guardado en: {os.path.abspath(MODEL_PATH)}")
+print(f"\n Modelo guardado en: {os.path.abspath(MODEL_PATH)}")
