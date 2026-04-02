@@ -1,16 +1,10 @@
-# Deteccion de Spam en SMS — Clasificador de Machine Learning
+# Detección de Spam en SMS — Clasificador de Machine Learning
 
 Clasificador de spam para mensajes SMS listo para produccion, construido con Python y scikit-learn, entrenado sobre el dataset SMS Spam Collection de la UCI. Desarrollado como parte del camino de aprendizaje del rol **AI Red Teamer** en [Hack The Box](https://www.hackthebox.com).
 
 ---
 
-## Contexto
-
-Este proyecto fue construido mientras se trabajaba el rol AI Red Teamer en Hack The Box, que cubre tecnicas de seguridad ofensiva aplicadas a sistemas de machine learning — incluyendo evasion de modelos, entradas adversariales y como engañar clasificadores. Construir un detector de spam desde cero da la comprension base de como funcionan estos modelos antes de aprender a romperlos.
-
----
-
-## Que hace
+## ¿Qué hace?
 
 - Descarga y preprocesa el dataset SMS Spam Collection (5,574 mensajes)
 - Limpia y tokeniza el texto, elimina stopwords y aplica stemming
@@ -19,19 +13,6 @@ Este proyecto fue construido mientras se trabajaba el rol AI Red Teamer en Hack 
 - Ajusta hiperparametros automaticamente con validacion cruzada de 5 pliegues (GridSearchCV)
 - Guarda el modelo entrenado en disco con joblib
 - Clasifica nuevos mensajes desde un archivo de texto plano, un mensaje por linea
-
----
-
-## Estructura del proyecto
-
-```
-.
-├── train_model.py        # Descarga el dataset, entrena el modelo y lo guarda en disco
-├── predict.py            # Carga el modelo guardado y clasifica mensajes desde un .txt
-├── mensajes_prueba.txt   # Mensajes de ejemplo para pruebas
-├── spam_model.joblib     # Modelo guardado (generado despues del entrenamiento)
-└── README.md
-```
 
 ---
 
@@ -88,7 +69,7 @@ Probabilidad spam: 0.4%  |  Ham: 99.6%
 
 ---
 
-## Como funciona
+## ¿Cómo funciona?
 
 ### Pipeline de preprocesamiento
 
@@ -134,16 +115,13 @@ Almeida, T.A., Hidalgo, J.M.G., Yamakami, A. (2011). Contributions to the Study 
 
 ---
 
-## Conexion con AI Red Teaming
+## AI Red Teaming
 
-Entender como funcionan los clasificadores de spam es un prerequisito para entender como fallan. El camino AI Red Teamer en Hack The Box cubre tecnicas como:
-
+Entender como funcionan los clasificadores de spam es un prerequisito para entender como fallan.
 - Construir entradas adversariales que evadan clasificadores
 - Sondear los limites de decision del modelo
 - Explotar suposiciones del preprocesamiento (por ejemplo, que pasa si se eliminan los caracteres de los que el modelo depende)
 - Entender la brecha entre la distribucion de entrenamiento y las entradas del mundo real
-
-Este proyecto es la linea base del defensor. El siguiente paso es aprender a saltarsela.
 
 ---
 
